@@ -130,36 +130,9 @@
 
                                     </div>
                                     <br>
-                                    <!-- <form>
-                                        @csrf
-                                        <input type="hidden" name="id_product" class="comment_product_id " value="{{ $detail_pro-> id_product }}">
-                                        <div id="comment_show">
-
-                                        </div>
-                                    </form> -->
-
-                                    <label><b>Write your review</b></label>
-                                    <div class="tab-content">
-                                        <form action="{{route('comment',$detail_pro->id_product)}}" method="POST">
-                                            @csrf
-                                            <textarea required="" placeholder="Your comment" style="width:100%;height:160px;border-radius:16px" name="content" class="comment_content"></textarea>
-                                            <button type="submit" class="btn btn-primary pull-right send-comment">submit</a>
-                                        </form>
-                                    </div>
-                                    @foreach($content as $ct)
-                                    {{$ct->getUser->name}} :
-                                    {{$ct->content}}
-                                    <div style="margin-left:50px">
-                                    
-
-                                    @foreach ($ct->getComment->replies as $item)
-                                    Admin:  {{$item->content}}
-                                        <br>
-                                    @endforeach
+                                
                                 </div>
                                     
-
-                                    @endforeach
                                 </div>
                             </div>
                         </div>

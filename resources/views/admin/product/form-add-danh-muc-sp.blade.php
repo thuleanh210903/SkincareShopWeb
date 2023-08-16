@@ -61,41 +61,13 @@
             <h3 class="tile-title">Tạo mới danh mục sản phẩm</h3>
             <div class="tile-body">
               
-              <form class="row" method="post" action="{{URL::to('/save-category-product')}}">
+              <form class="row" method="post" action="{{URL::to('/save-category-product')}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group col-md-4">
                   <label class="control-label">Tên danh mục</label>
                   <input class="form-control" type="text" name="name_category_product">
                 </div>
-                <!-- <div class="form-group col-md-4">
-                  <label class="control-label">Mô tả</label>
-                  <input class="form-controll" type="text" name="MoTa" >
-                </div> -->
-                <!-- <div class="form-group col-md-4">
-                  <select name="HienThi">
-                    <option>Ẩn</option>
-                    <option>Hiện</option>
-                  </select>
-                </div> -->
-                <!-- <div class="form-group col-md-4">
-                        <label for="exampleSelect1" class="control-label">Chức vụ</label>
-                        <select class="form-control" id="exampleSelect1">
-                          <option>-- Chọn chức vụ --</option>
-                          <option>Bán hàng</option>
-                          <option>Tư vấn</option>
-                          <option>Dịch vụ</option>
-                          <option>Thu Ngân</option>
-                          <option>Quản kho</option>
-                          <option>Bảo trì</option>
-                          <option>Kiểm hàng</option>
-                          <option>Bảo vệ</option>
-                          <option>Tạp vụ</option>
-                        </select>
-                      </div> -->
-                      <!-- <div class="form-group col-md-4">
-                            <label class="control-label">Nhập lý do</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                          </div> -->
+                
                   <div class="form-group col-md-4">
                       <label for="exampleSelect1" class="control-label">Tình trạng</label>
                       <select class="form-control" id="exampleSelect1" name="show">
@@ -104,6 +76,25 @@
                         <option value="1">Hiện</option>
                       </select>
                     </div> 
+                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-12">
+                <label class="control-label">Ảnh sản phẩm</label>
+                <div id="myfileupload">
+                  <input type="file" id="uploadfile" name="image"  onchange="readURL(this);"/>
+                </div>
+                <div id="thumbbox">
+                  <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
+                  <a class="removeimg" href="javascript:"></a>
+                </div>
+                <div id="boxchoice">
+                  <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
+                  <p style="clear:both"></p>
+                </div>
+
+              </div>
+               
+
+              </div>
                   
             <div class="tile-footer">
             </div>

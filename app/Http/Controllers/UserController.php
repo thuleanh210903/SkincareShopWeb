@@ -194,9 +194,8 @@ class UserController extends Controller
 
     public function view_order_history()
     {
-
-
         $order_by_user = orders::where('user_id', Auth::user()->user_id)->orderby('id_order', 'DESC')->get();
+        
         // dd($order_by_user);
         return view('user.order-history', compact('order_by_user'));
     }

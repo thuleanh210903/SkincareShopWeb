@@ -17,7 +17,7 @@ class CheckAdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->user_id==1){
+        if(Auth::check() && Auth::user()->user_id==46){
         
             return $next($request);
         }

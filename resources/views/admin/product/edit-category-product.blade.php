@@ -84,6 +84,22 @@
                   <option value="1">Hiện</option>
                 </select>
               </div>
+              <div class="form-group col-md-12">
+                <label class="control-label">Ảnh sản phẩm</label>
+                <div id="myfileupload">
+                  <input type="file" id="uploadfile" name="image" onchange="readURL(this);" value=" $edit_value->image " />
+                  <img src='public/admin/image/cate'>
+                </div>
+                <div id="thumbbox">
+                  <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
+                  <a class="removeimg" href="javascript:"></a>
+                </div>
+                <div id="boxchoice">
+                  <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
+                  <p style="clear:both"></p>
+                </div>
+
+              </div>
 
 
 

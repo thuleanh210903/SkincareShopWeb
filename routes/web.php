@@ -41,23 +41,6 @@ Route::get('/view-order-history', 'App\Http\Controllers\UserController@view_orde
 Route::get('/view-order-detail-user/{id_order}', 'App\Http\Controllers\UserController@view_order_detail');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Route::put('/detail/{$id_product}',[ProductController::class,'show_product'])->name('product.detail');
 Route::resource('/product', CategoryProduct::class);
 Route::get('/shop-detail/{id_product}', 'App\Http\Controllers\admin\ProductController@show_product_detail');
@@ -95,15 +78,23 @@ Route::middleware('checkAdminLogin')->group(function () {
     Route::get('/edit-category-post/{id_cate_post}', 'App\Http\Controllers\Admin\CategoryPostController@edit_category_post');
     Route::post('/update-category-post/{id_category_post}', 'App\Http\Controllers\Admin\CategoryPostController@update_category_post');
     Route::get('/delete-category-post/{id_cate_post}', 'App\Http\Controllers\Admin\CategoryPostController@delete_category_post');
-    //Product
-    Route::get('/all-product', 'App\Http\Controllers\admin\ProductController@all_product');
-    Route::get('/add-product', 'App\Http\Controllers\admin\ProductController@add_product');
-    Route::post('/save-product', 'App\Http\Controllers\admin\ProductController@save_product');
-    Route::get('/edit-product', 'App\Http\Controllers\admin\ProductController@edit_product');
-    Route::post('/update-product', 'App\Http\Controllers\admin\ProductController@update_product');
-    Route::get('/delete-product/{id_product}', 'App\Http\Controllers\admin\ProductController@delete_product');
-    Route::get('/detail/{id_product}', 'App\Http\Controllers\admin\ProductController@show_product');
-    //Category Product
+
+
+
+    Route::post('/check-coupon', 'App\Http\Controllers\Client\CartController@check_coupon');
+    Route::get('/add-coupon', 'App\Http\Controllers\admin\CouponController@add_coupon');
+    Route::post('/save-coupon', 'App\Http\Controllers\admin\CouponController@save_coupon');
+    Route::get('/all-coupon', 'App\Http\Controllers\admin\CouponController@all_coupon');
+    Route::get('/edit-coupon', 'App\Http\Controllers\admin\CouponController@edit_coupon');
+    Route::post('/update-coupon', 'App\Http\Controllers\admin\CouponController@update_coupon');
+    Route::get('/delete-coupon/{id_coupon}', 'App\Http\Controllers\admin\CouponController@delete_coupon');
+
+
+
+    Route::get('/order-table', 'App\Http\Controllers\admin\OrderController@all_order');
+    Route::get('/view-order-detail/{id_order}', 'App\Http\Controllers\admin\OrderController@order_detail');
+    Route::get('/edit-order-status/{id_order}', 'App\Http\Controllers\admin\OrderController@show_edit_order');
+    Route::post('/update-order-status/{id_order}', 'App\Http\Controllers\admin\OrderController@update_order_status');
 
     Route::get('/all-category-product', 'App\Http\Controllers\admin\CategoryProduct@all_category_product');
     Route::get('/add-category-product', 'App\Http\Controllers\admin\CategoryProduct@add_category_product');
@@ -111,21 +102,16 @@ Route::middleware('checkAdminLogin')->group(function () {
     Route::get('/edit-category-product/{id_category_product}', 'App\Http\Controllers\admin\CategoryProduct@edit_category_product');
     Route::post('/update-category-product/{id_category_product}', 'App\Http\Controllers\admin\CategoryProduct@update_category_product');
     Route::get('/delete-category-product/{id_category_product}', 'App\Http\Controllers\admin\CategoryProduct@delete_category_product');
-    //coupon
-    Route::post('/check-coupon', 'App\Http\Controllers\Client\CartController@check_coupon');
-    Route::get('/add-coupon', 'App\Http\Controllers\admin\CouponController@add_coupon');
-    Route::post('/save-coupon', 'App\Http\Controllers\admin\CouponController@save_coupon');
-    Route::get('/all-coupon', 'App\Http\Controllers\admin\CouponController@all_coupon');
-    Route::get('/edit-coupon', 'App\Http\Controllers\admin\CouponController@edit_coupon');
-    Route::post('/update-coupon/{id_coupon}', 'App\Http\Controllers\admin\CouponController@update_coupon');
-    Route::get('/delete-coupon/{id_coupon}', 'App\Http\Controllers\admin\CouponController@delete_coupon');
-    //order
-    Route::get('/order-table', 'App\Http\Controllers\admin\OrderController@all_order');
-    Route::get('/view-order-detail/{id_order}', 'App\Http\Controllers\admin\OrderController@order_detail');
-    Route::get('/edit-order-status/{id_order}', 'App\Http\Controllers\admin\OrderController@show_edit_order');
-    Route::post('/update-order-status/{id_order}', 'App\Http\Controllers\admin\OrderController@update_order_status');
-});
 
+
+    Route::get('/all-product', 'App\Http\Controllers\admin\ProductController@all_product');
+    Route::get('/add-product', 'App\Http\Controllers\admin\ProductController@add_product');
+    Route::post('/save-product', 'App\Http\Controllers\admin\ProductController@save_product');
+    Route::get('/edit-product', 'App\Http\Controllers\admin\ProductController@edit_product');
+    Route::post('/update-product', 'App\Http\Controllers\admin\ProductController@update_product');
+    Route::get('/delete-product/{id_product}', 'App\Http\Controllers\admin\ProductController@delete_product');
+    Route::get('/detail/{id_product}', 'App\Http\Controllers\admin\ProductController@show_product');
+});
 
 
 Route::post('/save-cart', 'App\Http\Controllers\client\CartController@save_cart');
@@ -143,53 +129,11 @@ Route::post('/payment-option', 'App\Http\Controllers\Client\CheckoutController@p
 
 
 
-
 //email
 Route::get('send-mail', 'App\Http\Controllers\MailController@index');
-
-
-
-
-
-
+Route::get('/about', function () {
+    return view('user.about');
+});
 
 
 
-Route::get('/danh-sach-khach-hang', function () {
-    return view('admin.danh-sach-khach-hang');
-});
-Route::get('/danh-sach-nhan-vien', function () {
-    return view('admin.danh-sach-nhan-vien');
-});
-
-Route::get('/form-add-don-hang', function () {
-    return view('admin.form-add-don-hang');
-});
-Route::get('/form-add-new', function () {
-    return view('admin.form-add-new');
-});
-Route::get('/form-add-nhan-vien', function () {
-    return view('admin.form-add-nhan-vien');
-});
-Route::get('/form-add-san-pham', function () {
-    return view('admin.form-add-san-pham');
-});
-Route::get('/phan-mem-ban-hang', function () {
-    return view('admin.phan-mem-ban-hang');
-});
-Route::get('/quan-li-tin', function () {
-    return view('admin.quan-li-tin');
-});
-Route::get('/quan-ly-bao-cao', function () {
-    return view('admin.quan-ly-bao-cao');
-});
-
-Route::get('/table-data-customer', function () {
-    return view('admin.table-data-customer');
-});
-Route::get('/table-data-oder', function () {
-    return view('admin.table-data-oder');
-});
-Route::get('/table-data-product', function () {
-    return view('admin.table-data-product');
-});

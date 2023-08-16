@@ -56,7 +56,7 @@ class ProductController extends Controller
             $data['product_image'] = '';
         }
     
-        product::insert($data);
+        
 
         
         return redirect('/all-product');
@@ -115,36 +115,15 @@ class ProductController extends Controller
            $id_category_product =  $detail-> id_category_product;
         }
         $relate_product = product::where('id_category_product',$id_category_product)->whereNotIn('product.id_product',[$id_product])->get();
-       
-        $comment=comment::where('id_product',$id_product)->get();
-        $content=comment_content::join('comment','comment.id','=','comment_content.idComment')
-        ->where('comment.id_product',$id_product)
-        ->where('comment.parent_id',0)
-        ->get();
+     
        
         
         
-        return view('user.shop.shop_details', compact('detail_product','relate_product','content'));
+        return view('user.shop.shop_details', compact('detail_product','relate_product'));
     }
     public function searchautoComplete(Request $request)
     {
-        // if ($request->ajax()) {
-        //     $data = product::where('product_name', 'LIKE', $request->product_name . '%')->get();
-        //     $output = '';
-        //     if (count($data) > 0) {
-        //         $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
-        //         foreach ($data as $row) {
-        //             $output .= '<li class="list-group-item">' . $row->product_name . '</li>';
-        //         }
-        //         $output .= '</ul>';
-        //     } else {
-        //         $output .= '<li class="list-group-item">' . 'No Data Found' . '</li>';
-        //     }
-        //     return $output;
-        // }
-        // return view('autosearch');
-
-
+        
         $query = $request->get('term','');
         $products = product::where('product_name','LIKE','%'.$query.'%')->get();
 

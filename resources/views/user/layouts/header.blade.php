@@ -64,8 +64,8 @@
                             <li><a href="{{ route('logout') }}">Logout</a></li>
                             @endauth
                             @guest
-                            <li href="{{ route('login') }}">Login</li>
-                            <li href="{{ route('register') }}">Register</li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
                             @endguest
 
                         </ul>

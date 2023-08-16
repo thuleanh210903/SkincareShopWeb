@@ -132,7 +132,7 @@
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="{{ URL::to('public/admin/image/product/'.$product->product_image)}}"></div>
                                     <div class="product__item__text">
-                                        <h6>{{ $product->name_product}}</h6>
+                                        
                                         <a href="#" class="add-cart">+ Add To Cart</a>
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
@@ -141,6 +141,7 @@
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         </div>
+                                        <h6>{{ $product->name_product}}</h6>
                                         <h5>{{number_format($product->price).' VND' }}</h5>
                                     </div>
                                 </div>

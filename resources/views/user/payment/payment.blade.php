@@ -66,7 +66,7 @@
                             </ul>
                             <ul class="checkout__total__all">
                                 <li>Subtotal <span></span></li>
-                                <li>Total <span>{{$or -> order_total}}</span></li>
+                                <li>Total <span>{{$or -> order_total}}000</span></li>
                                 <li>Status<span>
                                         <?php
                                         if ($or->order_status == 0) {
@@ -78,21 +78,13 @@
                             <div class="checkout__input__checkbox">
                                 <label for="payment">
                                     <a href="/">
-                                        Check Payment
+                                        Confirm
                                         <input type="checkbox" id="payment" name="payment_method" value="1">
                                         <span class="checkmark"></span>
                                     </a>
                                 </label>
                             </div>
-                            <div class="checkout__input__checkbox">
-                                <form method="POST" action="{{URL::to('/vnpay-payment')}}">
-                                            <label for="paypal"><a name='redirect' href="">
-                                                    VNPay
-                                                    <input type="checkbox" id="paypal" name="payment_method" value="2">
-                                                    <span class="checkmark"></span>
-                                            </label></a>
-                                        </form>
-                            </div>
+                            
                             <button type="submit" class="site-btn">PLACE ORDER</button>
 
                         </div>

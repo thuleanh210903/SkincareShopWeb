@@ -45,6 +45,17 @@ class CategoryProduct extends Controller
 
         $data['name_category_product'] = $request->name_category_product;
         $data['show'] = $request->show;
+        $get_image = $request->file('image');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . time() . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('public/admin/image/cate', $new_image);
+            $data['image'] = $new_image;
+        
+        } else {
+            $data['image'] = '';
+        }
 
         category_product::insert($data);
         return redirect('/all-category-product');
@@ -94,10 +105,10 @@ class CategoryProduct extends Controller
                     // dd($category_product_by_id);
                     break;
                 case 2:
-                    $category_product_by_id = product::join('category_product', 'product.id_category_product', '=', 'category_product.id_category_product')->where('product.id_category_product', $id_category_product)->whereBetween('price', [100000,200000])->paginate(2);
+                    $category_product_by_id = product::join('category_product', 'product.id_category_product', '=', 'category_product.id_category_product')->where('product.id_category_product', $id_category_product)->whereBetween('price', [100000,150000])->paginate(2);
                     break;
                 case 3:
-                    $category_product_by_id = product::join('category_product', 'product.id_category_product', '=', 'category_product.id_category_product')->where('product.id_category_product', $id_category_product)->whereBetween('price', [20000,300000])->paginate(2);
+                    $category_product_by_id = product::join('category_product', 'product.id_category_product', '=', 'category_product.id_category_product')->where('product.id_category_product', $id_category_product)->whereBetween('price', [250000,300000])->paginate(2);
                     break;
                 case 4:
                     $category_product_by_id = product::join('category_product', 'product.id_category_product', '=', 'category_product.id_category_product')->where('product.id_category_product', $id_category_product)->where('price', '>', 300000)->paginate(2);

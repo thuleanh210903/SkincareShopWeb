@@ -10,12 +10,11 @@
     <title>Soko Glam</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     @include('user.lib');
-   
-    
+
+
 </head>
 
 <body>
@@ -32,13 +31,13 @@
                 <a href="#">Sign in</a>
                 <a href="#">FAQs</a>
             </div>
-           
+
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="client/img/icon/search.png" alt=""></a>
             <a href="#"><img src="client/img/icon/heart.png" alt=""></a>
             <a href="#"><img src="client/img/icon/cart.png" alt=""> <span>0</span></a>
-            
+
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
@@ -48,8 +47,8 @@
     <!-- Offcanvas Menu End -->
 
     @include('user.layouts.header')
-    
-   
+
+
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
@@ -58,11 +57,11 @@
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
-                                
+
                                 <h2 style="color:#ffff">Beauty is in the skin!</h2>
                                 <p style="color:#ffff">Beauty is in the skin! Take care of it, oil it, clean it, scrub it, perfume it, and put on your best clothes, even if there is no special occasion, and you'll feel like a queen.</p>
                                 <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -71,309 +70,8 @@
         </div>
     </section>
     <!-- Hero Section End -->
-  
-    <!-- Banner Section Begin -->
-    <section class="banner spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 offset-lg-4">
-                    <div class="banner__item">
-                        <div class="banner__item__pic">
-                            <img src="client/img/banner/img1.jpg" alt="" style="max-width:78%">
-                        </div>
-                        <div class="banner__item__text">
-                            <h2>For dry skin</h2>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="banner__item banner__item--middle">
-                        <div class="banner__item__pic">
-                            <img src="https://i.pinimg.com/564x/c8/fa/51/c8fa5128c71af1ef518c642dbadfd5c3.jpg" alt="">
-                        </div>
-                        <div class="banner__item__text">
-                            <h2>For Oily skin</h2>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="banner__item banner__item--last">
-                        <div class="banner__item__pic">
-                            <img src="https://i.pinimg.com/564x/2a/80/1c/2a801cb4d82dca606561eb0ef888a355.jpg" alt="">
-                        </div>
-                        <div class="banner__item__text">
-                            <h2>For Sensitive Skin</h2>
-                            <a href="#">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Banner Section End -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                        <li class="active" data-filter="*">Best Sellers</li>
-                    </ul>
-                </div>
-            </div>
-            @foreach($all_product as $key=>$product)
-            <div class="row product__filter">
 
-                <div class="row_product" style="min-width:250px; max-width:300px; margin-left:54px ">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{ URL::to('public/admin/image/product/'.$product->product_image)}}" >
-                            <span class="label">New</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>{{ $product->name_product }}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>{{ number_format($product->price).'VND'  }}</h5>
-                        </div>
-                    </div>
-
-                </div>
-                @endforeach
-               
-            </div>
-        </div>
-    </section>
-    
-
-    <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="filter__controls">
-                        <li class="active" data-filter="*">Best Sellers</li>
-                        <li data-filter=".new-arrivals">New Arrivals</li>
-                        <li data-filter=".hot-sales">Hot Sales</li>
-                    </ul>
-                </div>
-            </div>
-            @foreach($all_product as $key=>$product)
-            <div class="row product__filter">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix ">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{ URL::to('public/admin/image/product/'.$product->product_image)}}">
-                            <span class="label">New</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>{{ $product->name_product }}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>{{ $product->price }}</h5>
-                        </div>
-                    </div>
-                </div>
-                @endforeach 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/suncream/product-2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Aloe Soothing Sun Cream SPF50</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$11.59</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/cleanser/product-1.jpg">
-                            <span class="label">Sale</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>COSRX Gel Cleanser</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$43.48</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/cleanser/product-2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>innisfree Green Tea Foam Cleanser</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$60.9</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/facemask/product-1.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>innisfree Super Volcanic Pore Clay Mask</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$31.37</h5>
-                            <div class="product__color__select">
-                                <label for="pc-13">
-                                    <input type="radio" id="pc-13">
-                                </label>
-                                <label class="active black" for="pc-14">
-                                    <input type="radio" id="pc-14">
-                                </label>
-                                <label class="grey" for="pc-15">
-                                    <input type="radio" id="pc-15">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/suncream/product-2.jpg">
-                            <span class="label">Sale</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Aloe Soothing Sun Cream SPF50</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$17.85</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="https://www.larocheposay.vn/-/media/project/loreal/brand-sites/lrp/apac/vn/products/effaclar/effaclar-cleansing-foaming-gel/la-roche-posay-face-cleanser-effaclar-cleansing-foaming-gel-200ml-3337872411083-front.png">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Laroche Posay EFFACLAR PURIFYING FOAMING GEL</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$49.66</h5>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="client/img/product/cleanser/product-3.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="client/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="client/img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Some By Mi Cleanser</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$26.28</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product Section End -->
-
+   
     <!-- Categories Section Begin -->
     <section class="categories spad">
         <div class="container">
@@ -440,7 +138,7 @@
                     <div class="instagram__text">
                         <h2>Instagram</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                            labore et dolore magna aliqua.</p>
                         <h3>#SOKO GLAM</h3>
                     </div>
                 </div>
@@ -509,24 +207,24 @@
     </div>
     <!-- Search End -->
 
- 
 
 
 
 
-   
+
+
 </body>
-    <script src="{{ asset('client/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('client/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.slicknav.js') }}"></script>
-    <script src="{{asset('client/js/mixitup.min.js')}}"></script>
-    <script src="{{ asset('client/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('client/js/main.js') }}"></script>
+<script src="{{ asset('client/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('client/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('client/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('client/js/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('client/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('client/js/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('client/js/jquery.slicknav.js') }}"></script>
+<script src="{{asset('client/js/mixitup.min.js')}}"></script>
+<script src="{{ asset('client/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('client/js/main.js') }}"></script>
 
-   
+
 
 </html>

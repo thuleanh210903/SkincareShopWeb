@@ -91,7 +91,7 @@
     <!-- Offcanvas Menu End -->
 
     @include('user.layouts.header')
-    <table class="table table-hover table-bordered" id="sampleTable">
+    <table class="table table-hover table-bordered" id="sampleTable" style="margin-top: 117px;">
         <thead>
             <tr>
                 <th width="10"><input type="checkbox" id="all"></th>
@@ -129,7 +129,6 @@
     </table>
 
 
-    @include('user.layouts.footer')
 
 
 

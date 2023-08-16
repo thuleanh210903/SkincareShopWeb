@@ -85,6 +85,7 @@
                     }
                     ?>
                   </td>
+                  <td><img src="public/admin/image/cate/{{ $cate_pro->image }}" height="50" width="50"></td>
                   <td><a class="btn btn-primary btn-sm trash" type="button" title="Xóa"  href="{{URL::to('/delete-category-product/'.$cate_pro->id_category_product)}}" onclick="return confirm('Bạn có chắc muốn xóa danh mục này không?')"><i class="fas fa-trash-alt"></i>
                     </a>
                     <a class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" href="{{URL::to('/edit-category-product/'.$cate_pro->id_category_product)}}"><i class="fas fa-edit"></i></a>

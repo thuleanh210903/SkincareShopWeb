@@ -67,30 +67,56 @@ class CouponController extends Controller
         return redirect('/all-coupon');
     }
 
-    public function edit_coupon($id_coupon)
+    // public function edit_coupon($id_coupon)
+    // {
+    //     $edit_coupon = coupon::where('id_coupon', $id_coupon)->first();
+    //     return view('admin.coupon.form-edit-coupon', compact('edit_coupon'));
+    // }
+
+    public function edit_coupon(Request $request)
     {
-        $edit_coupon = coupon::where('id_coupon', $id_coupon)->get();
-        return view('admin.coupon.form-edit-coupon', compact('edit_coupon'));
+        $id_coupon= $request->id_coupon;
+        $edit_coupon = coupon::where('id_coupon', $id_coupon)->first();
+
+        // dd($edit_product);
+        return view('admin.coupon.form-edit-coupon')->with(compact('edit_coupon'));
     }
-    public function update_coupon(Request $request, $id_coupon)
-    {
-        $data = array();
-        $data['coupon_name'] = $request->coupon_name;
-        $data['coupon_number'] = $request->coupon_number;
-        $data['coupon_time'] = $request->coupon_time;
-        $data['coupon_condition'] = $request->coupon_condition;
-        $data['coupon_code'] = $request->coupon_code;
+
+    
+    // public function update_coupon(Request $request, $id_coupon)
+    // {
+    //     $data = array();
+    //     $data['coupon_name'] = $request->coupon_name;
+    //     $data['coupon_number'] = $request->coupon_number;
+    //     $data['coupon_time'] = $request->coupon_time;
+    //     $data['coupon_condition'] = $request->coupon_condition;
+    //     $data['coupon_code'] = $request->coupon_code;
         
 
-        DB::table('coupon')->where('id_coupon', $id_coupon)->update($data);
+    //     coupon::where('id_coupon', $id_coupon)->update($data);
+    //     return redirect('/all-coupon');
+    // }
+
+
+
+    public function update_coupon(Request $request){
+        $data = $request->all();
+        $coupon = coupon::where('id_coupon', $data['id_coupon'])->first();
+
+        $coupon['coupon_name'] = $data['coupon_name'];
+        $coupon['coupon_number'] = $data['coupon_number'];
+        $coupon['coupon_time'] = $data['coupon_time'];
+
+        $coupon['coupon_condition'] = $data['coupon_condition'];
+       
+        $coupon->save();
         return redirect('/all-coupon');
     }
 
 
-
     public function delete_coupon($id_coupon)
     {
-        DB::table('coupon')->where('id_coupon', $id_coupon)->delete();
+        coupon::where('id_coupon', $id_coupon)->delete();
         return redirect('/all-coupon');
     }
 
